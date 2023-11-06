@@ -105,8 +105,9 @@ public class MainFile {
 		Employee.compareEmployeeStatus(myEmployee, mySecondEmployee);
 		
 		
-		
-		
+		System.out.println(myEmployee);
+		System.out.println(mySecondEmployee);
+
 	
 	}
 	

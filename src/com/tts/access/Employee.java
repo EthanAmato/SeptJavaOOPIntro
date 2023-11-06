@@ -124,4 +124,20 @@ public class Employee {
 		}
 	}
 
+//	In Java, we sometimes want to overwrite a method that has been previously implemented by a superclass
+	// (We went over this concept when we learned about polymorphism). To rewrite
+	// how Java will convert an
+	// object to a string, we have to use the @Override annotation above a method
+	// named toString(). This
+	// will redefine and override from the Object class the way that printing our
+	// object will appear in the console
+	
+	@Override
+	public String toString() {
+		return "Employee [name=" + this.name + ", id=" + this.id + ", status=" + this.status + "]";
+	}
+	
+	
+	
+
 }
