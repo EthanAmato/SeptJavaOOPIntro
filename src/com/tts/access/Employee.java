@@ -4,6 +4,10 @@ import com.tts.oop.Car;
 
 /**
  * The Employee class represents an employee with a name and and ID
+ * 
+ * Follows the conventions in Java of the order to define parts of a class: 1.
+ * Constants 2. Instance Variables 3. Constructor(s) 4. Methods
+ * 
  */
 public class Employee {
 	// Let's define a Constant inside of our Employee:
@@ -16,11 +20,16 @@ public class Employee {
 	// way of defining constants looks like the following:
 
 	// This is an Integer that represents the upper limit of Employee IDs
-	public static final Integer MAX_ID = 9999;
+	private static final Integer MAX_ID = 9999;
+
+	// Static constants that are public:
+	public static final String STATUS_CLOCKED_IN = "Clocked In";
+	public static final String STATUS_CLOCKED_OUT = "Clocked Out";
 
 	// Next, we can make our instance variables:
 	private String name;
 	private Integer id;
+	private String status;
 
 	// Constructor:
 	public Employee(String name, Integer id) {
@@ -31,6 +40,9 @@ public class Employee {
 			this.name = name;
 			System.out.println("id was too big... Setting it to null.");
 		}
+
+		this.status = this.STATUS_CLOCKED_IN;
+
 	}
 
 	// To allow for read-only access in a Java class,
@@ -46,6 +58,10 @@ public class Employee {
 
 	public Integer getId() {
 		return this.id;
+	}
+
+	public String getStatus() {
+		return this.status;
 	}
 
 	// But sometimes, we want to give access to overwriting
@@ -66,7 +82,46 @@ public class Employee {
 		System.out.println("Invalid Id");
 
 	}
-	
 
+//	At the bottom here, let's have one more setter for changing the status of our Employee
+	// The user will be able to access the value associated with STATUS_CLOCKED_IN +
+	// OUT at the class
+	// level as input:
+
+	public void setStatus(String newStatus) {
+		System.out.println(newStatus);
+		if (isValidStatus(newStatus)) {
+			this.status = newStatus;
+			return;
+		}
+		System.out.println("Invalid status...");
+	}
+
+	// Let's create a static method - a method that is run at the class level. You
+	// do not need an instance
+	// to run a static method. This can be outward-facing methods that are used by
+	// developers or
+	// private utility methods to help you with the underlying logic of your class
+
+	// This is an example of a static helper/utility function. We don't need it to
+	// be tied to
+	// any individual instance.
+	private static boolean isValidStatus(String status) {
+		if (status.equals(STATUS_CLOCKED_IN) || status.equals(STATUS_CLOCKED_OUT)) {
+			return true;
+		}
+		return false;
+	}
+
+	// An example of an outward facing static method could be a method that compares
+	// the
+	// status of two Employees:
+	public static void compareEmployeeStatus(Employee e1, Employee e2) {
+		if (e1.getStatus().equals(e2.getStatus())) {
+			System.out.println("Both Employees have the same status: " + e1.getStatus());
+		} else {
+			System.out.println("The Employees have 2 different statuses.");
+		}
+	}
 
 }

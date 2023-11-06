@@ -89,8 +89,25 @@ public class MainFile {
 		mySecondEmployee.setId(4321);
 		
 		System.out.println(mySecondEmployee.getId());
-
 		
+		// Static variables make it so that we can access a 
+		// value or a method WITHOUT an individual instance
+		// of that class. We can call it at the class level
+		// like so:
+		myEmployee.setStatus(Employee.STATUS_CLOCKED_IN);
+		mySecondEmployee.setStatus(Employee.STATUS_CLOCKED_IN);
+		
+		
+		// A Static Method, similar to a static variable,
+		// can be run at the class level as well - we DO NOT
+		// NEED an instance of a variable to run a static method
+		
+		Employee.compareEmployeeStatus(myEmployee, mySecondEmployee);
+		
+		
+		
+		
+	
 	}
 	
 }
