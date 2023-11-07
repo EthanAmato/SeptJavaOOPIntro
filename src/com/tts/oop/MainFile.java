@@ -1,11 +1,13 @@
 package com.tts.oop;
+
 // To import a class from the JRE System Library, we need
 // the package that it exists in along with the name of the class
 // we will import:
 import java.util.ArrayList;
 import com.tts.oop.Car;
 import com.tts.access.Employee;
-
+import com.tts.day2.Person;
+import com.tts.day2.Student;
 public class MainFile {
 
 //	Since this is a main file, we need to define a Main Method -
@@ -13,7 +15,6 @@ public class MainFile {
 
 	public static void main(String[] args) {
 		System.out.println("Hello, World");
-		
 		// Now that we have imported an ArrayList from java.util,
 		// we are able to instantiate our very own ArrayList Object:
 		ArrayList<Integer> favoriteNumbers = new ArrayList<Integer>();
@@ -53,6 +54,8 @@ public class MainFile {
 		// we will actually need to use an import statement
 		
 		Employee myEmployee = new Employee("Ethan", 123);
+		
+//		myEmployee.name;
 		// When our instance variables are 'public'
 		// we can access them directly like the following:
 //		System.out.println(myEmployee.name);
@@ -108,7 +111,50 @@ public class MainFile {
 		System.out.println(myEmployee);
 		System.out.println(mySecondEmployee);
 
+		
+		// Let's make a new example in the form of a Person object
+		Person nullPerson = new Person();
+		
+		// Remember that the private access modifier restricts direct access to fields in our class
+		// and keeps the user from reading/writing to it. This is a way we can implement encapsulation into our programs
+		// int age = nullPerson.age;
+		
+		System.out.println(nullPerson.getName().length());
+		
+		Person genericGuy = new Person("John Smith", 50);
+		
+		System.out.println(genericGuy.getName());
+		
+		genericGuy.setName("Cool McCoolGuy");
+		
+		System.out.println(genericGuy.getName());
+		
+		System.out.println(Person.compareNameLength(genericGuy, nullPerson));
 	
+		ArrayList<Double> grades = new ArrayList<Double>();
+		grades.add(90.23);
+		grades.add(79.23);
+		grades.add(60.23);
+		grades.add(100.0);
+		
+		// Can't call this because calculateAverage is protected
+		// and only accessible by classes in same package
+		// or classes that inherit from Person
+//		System.out.println(Person.calculateAverage(grades));
+		
+		
+		Student myStudent = new Student("Alvin", 24, "Mathematics", grades);
+		
+		System.out.println(myStudent.getMajor());
+		System.out.println(myStudent.getGrades());
+		System.out.println(myStudent.getName());
+		myStudent.setName("Shu Wai");
+		System.out.println(myStudent.getName());
+		System.out.println(myStudent.getGPA());
+		
+		
+		System.out.println(myStudent.toString());
+		
 	}
-	
+
 }

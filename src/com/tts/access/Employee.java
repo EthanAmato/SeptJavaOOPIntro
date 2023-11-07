@@ -27,7 +27,7 @@ public class Employee {
 	public static final String STATUS_CLOCKED_OUT = "Clocked Out";
 
 	// Next, we can make our instance variables:
-	private String name;
+	String name;
 	private Integer id;
 	private String status;
 
