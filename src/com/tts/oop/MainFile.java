@@ -8,6 +8,7 @@ import com.tts.oop.Car;
 import com.tts.access.Employee;
 import com.tts.day2.Person;
 import com.tts.day2.Student;
+import com.tts.game.GuessingGame;
 public class MainFile {
 
 //	Since this is a main file, we need to define a Main Method -
@@ -154,6 +155,10 @@ public class MainFile {
 		
 		
 		System.out.println(myStudent.toString());
+		
+		
+		GuessingGame myGame = new GuessingGame(100, 200);
+		myGame.play();
 		
 	}
 
